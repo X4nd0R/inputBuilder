@@ -1,0 +1,252 @@
+/* --- Select CSS --- */
+
+/* Outside Container */
+.ib-select-outer{
+	position: relative;
+	max-width: 500px;
+	width: 100%;
+	height: 60px;
+	border-radius: 7px;
+	cursor: pointer;
+}
+
+.ib-select-outer.open{
+	z-index: 100;
+}
+
+/* Contains actual select element and the custom display */
+/* Dropdown is outside of this */
+/* This is the element to set the background image as the dropdown arrow */
+.ib-select-inner{
+	position: relative;
+	max-width: 500px;
+	width: 100%;
+	height: 60px;
+	background-color: #FFFFFF;
+	background-image: url("../demo/images/chevron-down2x.png");
+	background-repeat: no-repeat;
+	background-position: calc(100% - 17px) 50%;
+	background-size: 20px;
+	border: 1px solid #707070;
+	border-radius: 7px;
+	box-sizing: border-box;
+	z-index: 10;
+}
+
+/* Hide actual select element */
+.ib-select-inner > select{
+	position: absolute;
+	width:  calc( 100% - 42px );
+	height: 100%;
+	opacity: 0;
+	z-index: 1;
+}
+
+/* This is the custom dispaly of the currently selected option */
+.ib-select-display{
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+	width: 100%;
+	height: 100%;
+	padding-left: 24px;
+	font-size: 22px;
+	box-sizing: border-box;
+	z-index: 10;
+
+	-webkit-user-select: none; /* Safari 3.1+ */
+	-moz-user-select: none; /* Firefox 2+ */
+	-ms-user-select: none; /* IE 10+ */
+	user-select: none; /* Standard syntax */
+}
+
+/* Outside container for the dropdown menu */
+.ib-select-dropdown-outer{
+	position: absolute;
+	display: none;
+	top: 50px;
+	left: 0;
+	width: 100%;
+	padding-top: 10px;
+	border: 1px solid #707070;
+	border-bottom-left-radius: 7px;
+	border-bottom-right-radius: 7px;
+	background-color: #ffffff;
+	box-sizing: border-box;
+	z-index: 5;
+
+	-webkit-user-select: none; /* Safari 3.1+ */
+	-moz-user-select: none; /* Firefox 2+ */
+	-ms-user-select: none; /* IE 10+ */
+	user-select: none; /* Standard syntax */
+}
+
+/* Individual dropdown options */
+.ib-select-dropdown-option{
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+	width: 100%;
+	height: 60px;
+	padding-left: 24px;
+	font-size: 22px;
+	box-sizing: border-box;
+
+	-webkit-user-select: none; /* Safari 3.1+ */
+	-moz-user-select: none; /* Firefox 2+ */
+	-ms-user-select: none; /* IE 10+ */
+	user-select: none; /* Standard syntax */
+}
+
+/* Selected dropdown options */
+.ib-select-dropdown-option.selected{
+	background-color: #FBC07A;
+}
+
+/* Hover for individual dropdown options */
+.ib-select-dropdown-option:hover{
+	background-color: #FBC07A;
+}
+
+@media only screen and (max-width: 767px){
+	.ib-select-inner > select{
+		z-index: 15;
+	}
+}
+
+/* Checkbox CSS */
+.ib-checkbox-outer {
+	display: block;
+	position: relative;
+	padding-left: 35px;
+	margin-bottom: 12px;
+	cursor: pointer;
+	font-size: 22px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.ib-checkbox-outer input {
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;
+	height: 0;
+	width: 0;
+}
+
+/* Create a custom checkbox */
+.ib-checkbox-inner {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 25px;
+	width: 25px;
+	background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.ib-checkbox-outer:hover input ~ .ib-checkbox-inner {
+	background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.ib-checkbox-outer input:checked ~ .ib-checkbox-inner {
+	background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.ib-checkbox-inner:after {
+	content: "";
+	position: absolute;
+	display: none;
+}
+
+/* Show the checkmark when checked */
+.ib-checkbox-outer input:checked ~ .ib-checkbox-inner:after {
+	display: block;
+}
+
+/* Style the checkmark/indicator */
+.ib-checkbox-outer .ib-checkbox-inner:after {
+	left: 9px;
+	top: 5px;
+	width: 5px;
+	height: 10px;
+	border: solid white;
+	border-width: 0 2px 2px 0;
+	-webkit-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+
+/* Radio CSS */
+.ib-radio-outer {
+	display: block;
+	position: relative;
+	padding-left: 35px;
+	margin-bottom: 12px;
+	cursor: pointer;
+	font-size: 22px;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.ib-radio-outer input {
+	position: absolute;
+	opacity: 0;
+	cursor: pointer;
+}
+
+/* Create a custom radio button */
+.ib-radio-inner {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 25px;
+	width: 25px;
+	background-color: #eee;
+	border-radius: 50%;
+}
+
+/* On mouse-over, add a grey background color */
+.ib-radio-outer:hover input ~ .ib-radio-inner {
+	background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.ib-radio-outer input:checked ~ .ib-radio-inner {
+	background-color: #2196F3;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.ib-radio-inner:after {
+	content: "";
+	position: absolute;
+	display: none;
+}
+
+
+/* Show the indicator (dot/circle) when checked */
+.ib-radio-outer input:checked ~ .ib-radio-inner:after {
+	display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.ib-radio-outer .ib-radio-inner:after {
+	top: 9px;
+	left: 9px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: white;
+}

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Input Builder Demo</title>
+	<link rel="stylesheet" type="text/css" href="../src/inputBuilder.css">
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+</head>
+<script type="text/javascript" src="../src/inputBuilder.js"></script>
+<script type="text/javascript">
+	(function(){
+		function domReady(callback){
+			//If the document has already loaded run the callback
+			//The last part helps some cases with older IE versions
+			if(document.readyState === "complete"   ||   (document.readyState !== "loading" && !document.documentElement.doScroll)){
+				callback();
+				return true;
+			} else {
+				//Otherwise add an event handler to run when the DOM is ready
+				document.addEventListener("DOMContentLoaded", callback);
+				return false;
+			}
+		}
+
+		function runTest(){
+			let builder = new inputBuilder();
+			var mySelect = new builder.selectClass({
+				selector: '.my-select',
+				dropdownImage: 'url("images/chevron-down2x-red.png")'
+			});
+
+			mySelect.addOption({
+				label: '<div>foo<br><span class=\'flare\'>B</span>ar</div>',
+				value: 'fooBar'
+			});
+			mySelect.addOption({
+				label: '<div>Bar<br><span class=\'flare\'>f</span>oo</div>',
+				value: 'Barfoo'
+			});
+
+			mySelect.build();
+
+
+
+			var myOtherSelect = new builder.selectClass({
+				selector: '.my-other-select'
+			});
+
+			myOtherSelect.addOption({
+				label: '<div>Boo<br><span class=\'flare\'>f</span>ar</div>',
+				value: 'Boofar'
+			});
+			myOtherSelect.addOption({
+				label: '<div>Far<br><span class=\'flare\'>b</span>oo</div>',
+				value: 'Farboo'
+			});
+			myOtherSelect.addOption({
+				label: '<div>Raf<br><span class=\'flare\'>b</span>oo</div>',
+				value: 'Rafboo'
+			});
+
+			myOtherSelect.build();
+
+			var myCheckbox = new builder.checkboxClass({
+				selector: '.my-checkbox',
+				name: 'radio-set',
+				label: 'Check this out',
+				value: 'checked'
+			});
+			myCheckbox.build();
+
+
+			var myRadio1 = new builder.radioClass({
+				selector: '.my-radio-1',
+				name: 'radio-set',
+				label: 'Opt 1',
+				value: 'radio1pressed'
+			});
+			var myRadio2 = new builder.radioClass({
+				selector: '.my-radio-2',
+				name: 'radio-set',
+				label: 'Opt 2',
+				value: 'radio2pressed'
+			});
+			var myRadio3 = new builder.radioClass({
+				selector: '.my-radio-3',
+				name: 'radio-set',
+				label: 'Opt 3',
+				value: 'radio3pressed'
+			});
+
+			myRadio1.build();
+			myRadio2.build();
+			myRadio3.build();
+
+			window.myCheckbox = myCheckbox;
+			window.mySelect = mySelect;
+			window.myOtherSelect = myOtherSelect;
+
+			window.myRadio1 = myRadio1;
+			window.myRadio2 = myRadio2;
+			window.myRadio3 = myRadio3;
+		}
+
+		domReady(runTest);
+	})();
+
+</script>
+<style type="text/css">
+	.ib-select-outer, .ib-checkbox-outer{
+		margin-top: 10px;
+	}
+
+	.ib-select-display .flare{
+		color: #FF606F;
+	}
+
+	.ib-select-dropdown-option .flare{
+		color: #FF606F;
+	}
+</style>
+<body>
+	<div class="outside-container" style="max-width: 300px">
+		<div class="my-select"></div>
+		<div class="my-other-select"></div>
+		<div class="my-checkbox"></div>
+		<div class="my-radio-1"></div>
+		<div class="my-radio-2"></div>
+		<div class="my-radio-3"></div>
+	</div>
+</body>
+</html>
