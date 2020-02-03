@@ -60,6 +60,19 @@
 
 			myOtherSelect.build();
 
+			var myClonedSelect = new builder.selectClass({
+				selector: '.my-cloned-select',
+				placement: 'replace'
+			});
+			myClonedSelect.build();
+
+			var myOtherClonedSelect = new builder.selectClass({
+				selector: '.my-other-cloned-select',
+				placement: 'replace'
+			}).build();
+
+
+
 			var myCheckbox = new builder.checkboxClass({
 				selector: '.my-checkbox',
 				name: 'radio-set',
@@ -68,6 +81,14 @@
 			});
 			myCheckbox.build();
 
+			var myClonedCheckbox = new builder.checkboxClass({
+				selector: '.checkClone',
+				placement: 'replace',
+				label: 'fooBar',
+				value: 'raBoof'
+			});
+
+			myClonedCheckbox.build();
 
 			var myRadio1 = new builder.radioClass({
 				selector: '.my-radio-1',
@@ -88,11 +109,34 @@
 				value: 'radio3pressed'
 			});
 
+			var myClonedRadio1 = new builder.radioClass({
+				selector: '.radioClone1',
+				placement: 'replace',
+				value: 'raBoof'
+			});
+
+			var myClonedRadio2 = new builder.radioClass({
+				selector: '.radioClone2',
+				placement: 'replace',
+				value: 'raBoof'
+			});
+
+			var myClonedRadio3 = new builder.radioClass({
+				selector: '.radioClone3',
+				placement: 'replace',
+				value: 'raBoof'
+			});
+
+			myClonedRadio1.build();
+			myClonedRadio2.build();
+			myClonedRadio3.build();
+
 			myRadio1.build();
 			myRadio2.build();
 			myRadio3.build();
 
 			window.myCheckbox = myCheckbox;
+			window.myClonedCheckbox = myClonedCheckbox;
 			window.mySelect = mySelect;
 			window.myOtherSelect = myOtherSelect;
 
@@ -120,12 +164,30 @@
 </style>
 <body>
 	<div class="outside-container" style="max-width: 300px">
+		<h2>Fill Examples:</h2>
 		<div class="my-select"></div>
 		<div class="my-other-select"></div>
 		<div class="my-checkbox"></div>
 		<div class="my-radio-1"></div>
 		<div class="my-radio-2"></div>
 		<div class="my-radio-3"></div>
+		<h2>Clone Examples</h2>
+		<input type="checkbox" name="checkClone" class="checkClone" data-label="clone1">
+		<input type="radio" name="radioClone" class="radioClone1" data-label="clone2">
+		<input type="radio" name="radioClone" class="radioClone2" data-label="clone3">
+		<input type="radio" name="radioClone" class="radioClone3" data-label="clone4">
+		<select class="my-cloned-select">
+			<option value="opt1">Opt 1</option>
+			<option value="opt2">Opt 2</option>
+			<option value="opt3">Opt 3</option>
+			<option value="opt4">Opt 4</option>
+		</select>
+		<select class="my-other-cloned-select">
+			<option data-label="<div>foo1</div>" value="opt1">Opt 1</option>
+			<option data-label="<div>foo2</div>" value="opt2">Opt 2</option>
+			<option data-label="<div>foo3</div>" value="opt3">Opt 3</option>
+			<option data-label="<div>foo4</div>" value="opt4">Opt 4</option>
+		</select>
 	</div>
 </body>
 </html>

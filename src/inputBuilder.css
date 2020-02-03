@@ -152,29 +152,29 @@
 }
 
 /* On mouse-over, add a grey background color */
-.ib-checkbox-outer:hover input ~ .ib-checkbox-inner {
+.ib-checkbox-outer:hover input + .ib-checkbox-inner {
 	background-color: #ccc;
 }
 
 /* When the checkbox is checked, add a blue background */
-.ib-checkbox-outer input:checked ~ .ib-checkbox-inner {
+.ib-checkbox-outer input:checked + .ib-checkbox-inner {
 	background-color: #2196F3;
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */
-.ib-checkbox-inner:after {
+.ib-checkbox-mark {
 	content: "";
 	position: absolute;
 	display: none;
 }
 
 /* Show the checkmark when checked */
-.ib-checkbox-outer input:checked ~ .ib-checkbox-inner:after {
+.ib-checkbox-outer input:checked + .ib-checkbox-inner .ib-checkbox-mark {
 	display: block;
 }
 
 /* Style the checkmark/indicator */
-.ib-checkbox-outer .ib-checkbox-inner:after {
+.ib-checkbox-outer .ib-checkbox-mark {
 	left: 9px;
 	top: 5px;
 	width: 5px;
@@ -219,17 +219,17 @@
 }
 
 /* On mouse-over, add a grey background color */
-.ib-radio-outer:hover input ~ .ib-radio-inner {
+.ib-radio-outer:hover input + .ib-radio-inner {
 	background-color: #ccc;
 }
 
 /* When the radio button is checked, add a blue background */
-.ib-radio-outer input:checked ~ .ib-radio-inner {
+.ib-radio-outer input:checked + .ib-radio-inner {
 	background-color: #2196F3;
 }
 
 /* Create the indicator (the dot/circle - hidden when not checked) */
-.ib-radio-inner:after {
+.ib-radio-mark {
 	content: "";
 	position: absolute;
 	display: none;
@@ -237,12 +237,12 @@
 
 
 /* Show the indicator (dot/circle) when checked */
-.ib-radio-outer input:checked ~ .ib-radio-inner:after {
+.ib-radio-outer input:checked + .ib-radio-inner .ib-radio-mark {
 	display: block;
 }
 
 /* Style the indicator (dot/circle) */
-.ib-radio-outer .ib-radio-inner:after {
+.ib-radio-outer .ib-radio-mark {
 	top: 9px;
 	left: 9px;
 	width: 8px;
