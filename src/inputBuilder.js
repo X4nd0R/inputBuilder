@@ -314,7 +314,7 @@ function inputBuilder(){
 						return false;
 					});
 
-					option.addEventListener('mouseover', function(){
+					/*option.addEventListener('mouseover', function(){
 						interacted = true;
 						let selected = findAll(selector + ' div.ib-select-dropdown-option.selected');
 						selected.forEach(function(el){
@@ -322,7 +322,7 @@ function inputBuilder(){
 						});
 
 						this.classList.remove('selected');
-					});
+					});*/
 				});
 
 				sel.addEventListener('change', function(){
