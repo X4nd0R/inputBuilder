@@ -544,11 +544,7 @@ function inputBuilder(){
 
 		this.addOption = function addOption(args){
 			if(typeof args == 'object'){
-				if(typeof args.label == 'string'){
-					if(typeof args.value == 'string'){
-						return (options.push(args) - 1);
-					}
-				}
+				return (options.push(args) - 1);
 			}
 		};
 
